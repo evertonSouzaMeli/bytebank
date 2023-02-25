@@ -6,5 +6,5 @@ class Gerente(
     salario: Double
 ) : Funcionario(nome, cpf, salario) {
 
-    override val bonificacao: Double get() = salario + super.bonificacao
+    override val bonificacao: Double get() = salario + (salario * 0.1)
 }

@@ -6,8 +6,8 @@ class CalculadoraBonificacao {
         private set
 
     fun registra(vararg funcionarios: Funcionario) {
-        for (funcionario in funcionarios) {
-            this.total += funcionario.bonificacao
+        funcionarios.forEach {
+            this.total += it.bonificacao
         }
     }
 }

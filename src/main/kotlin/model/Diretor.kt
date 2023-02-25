@@ -7,5 +7,5 @@ class Diretor(
     val plr: Double
 ) : Funcionario(nome, cpf, salario) {
 
-    override val bonificacao: Double get() = salario + plr + super.bonificacao
+    override val bonificacao: Double get() = salario + plr + (salario * 0.1)
 }
