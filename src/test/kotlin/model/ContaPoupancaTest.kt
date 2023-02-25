@@ -7,10 +7,12 @@ import org.junit.jupiter.api.Test
 
 class ContaPoupancaTest {
     private lateinit var contaPoupanca: ContaPoupanca
+    private lateinit var endereco: Endereco
 
     @BeforeEach
     fun setup() {
-        contaPoupanca = ContaPoupanca("Titular", 12345)
+        endereco = Endereco("Rua rua", 123, "Bairro", "São Paulo", "SP", "00000-000")
+        contaPoupanca = ContaPoupanca(Cliente("Titular", senha = 1234, endereco = endereco))
     }
 
     @Test
@@ -20,5 +22,10 @@ class ContaPoupancaTest {
         contaPoupanca.sacar(5.0)
 
         assertEquals(4.75, contaPoupanca.saldo)
+    }
+
+    @Test
+    fun `deve autenticar quando a senha for igual`() {
+        assertTrue(contaPoupanca.titular.autentica(1234))
     }
 }

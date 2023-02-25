@@ -15,10 +15,10 @@ class CalculadoraBonificacaoTest {
 
     @BeforeEach
     fun setup() {
-        auxiliar = Auxiliar("Auxiliar", "000.000.000-00", 1000.00)
-        gerente = Gerente("Gerente", "111.111.111-11", 4000.00)
-        diretor = Diretor("Diretor", "333.333.333-33", 8000.00, 1000.0)
-        analista = Analista("Analista", "444.444.444-44", 8000.00)
+        auxiliar = Auxiliar("Auxiliar", 1000.00)
+        gerente = Gerente("Gerente", 4000.00)
+        diretor = Diretor("Diretor", 8000.00, 1000.0)
+        analista = Analista("Analista", 8000.00)
     }
 
     @Test
