@@ -2,10 +2,13 @@ package model
 
 class ContaPoupanca(
     titular: String,
-    numero: Int ) : Conta(titular, numero) {
+    numero: Int
+) : Conta(titular, numero) {
 
     override fun sacar(valor: Double) {
-        val taxa = valor * 0.05
-        super.sacar(valor + taxa)
+        if (valor > 0 && valor <= this.saldo) {
+            val taxa = valor * 0.05
+            this.saldo -= valor + taxa
+        }
     }
 }
