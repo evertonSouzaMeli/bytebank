@@ -11,7 +11,7 @@ class ContaCorrenteTest {
 
     @BeforeEach
     fun setup() {
-        contaCorrente = ContaCorrente(titular = "Titular", numero = 12345)
+        contaCorrente = ContaCorrente("Titular", 12345)
     }
 
     @Test
