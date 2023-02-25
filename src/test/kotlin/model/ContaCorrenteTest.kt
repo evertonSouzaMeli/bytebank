@@ -6,12 +6,14 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class ContaCorrenteTest {
-
     private lateinit var contaCorrente: ContaCorrente
+
+    private lateinit var contaCorrente2: ContaCorrente
 
     @BeforeEach
     fun setup() {
-        contaCorrente = ContaCorrente(Cliente("Titular", senha = 1234, endereco = null))
+        contaCorrente = ContaCorrente(titular = Cliente(nome = "Titular", senha = 1234, endereco = null), numero = null)
+        contaCorrente2 = ContaCorrente(titular = Cliente(nome = "Titular 2", senha = 5678, endereco = null), numero = null)
     }
 
     @Test
@@ -48,8 +50,6 @@ class ContaCorrenteTest {
 
     @Test
     fun `deve transferir se houver saldo`() {
-        val contaCorrente2 = ContaCorrente(Cliente("João", senha = 4567, endereco = null))
-
         contaCorrente2.depositar(100.00)
 
         contaCorrente2.transferir(40.00, contaCorrente)
@@ -61,8 +61,6 @@ class ContaCorrenteTest {
 
     @Test
     fun `nao deve transferir se nao houver saldo`() {
-        val contaCorrente2 = ContaCorrente(Cliente("João", senha = 4567, endereco = null))
-
         contaCorrente2.depositar(100.00)
 
         contaCorrente2.transferir(110.00, contaCorrente)

@@ -12,7 +12,7 @@ class ContaPoupancaTest {
     @BeforeEach
     fun setup() {
         endereco = Endereco("Rua rua", 123, "Bairro", "São Paulo", "SP", "00000-000")
-        contaPoupanca = ContaPoupanca(Cliente("Titular", senha = 1234, endereco = endereco))
+        contaPoupanca = ContaPoupanca(titular = Cliente(nome = "Titular", senha = 5678, endereco = null), numero = null)
     }
 
     @Test
@@ -26,6 +26,6 @@ class ContaPoupancaTest {
 
     @Test
     fun `deve autenticar quando a senha for igual`() {
-        assertTrue(contaPoupanca.titular.autentica(1234))
+        assertTrue(contaPoupanca.titular.autentica(5678))
     }
 }
