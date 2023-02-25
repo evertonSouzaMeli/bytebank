@@ -4,7 +4,6 @@ abstract class Conta(
     val titular: Cliente,
     var numero: Int?
 ) {
-
     var saldo: Double = 0.0
         protected set
 
@@ -15,6 +14,7 @@ abstract class Conta(
 
     init {
        total++
+       numero = (1000..9999).random()
     }
 
     fun depositar(valor: Double) {

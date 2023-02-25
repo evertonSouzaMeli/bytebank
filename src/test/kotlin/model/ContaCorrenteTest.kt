@@ -54,6 +54,7 @@ class ContaCorrenteTest {
 
         contaCorrente2.transferir(40.00, contaCorrente)
 
+
         assertEquals(56.00, contaCorrente2.saldo)
 
         assertEquals(40.00, contaCorrente.saldo)
