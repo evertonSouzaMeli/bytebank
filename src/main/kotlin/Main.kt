@@ -6,11 +6,11 @@ fun main() {
     val alex = Funcionario("Alex", "111.111.111-11", 1000.0)
     val fran = Gerente("Franc", "222.222.222-22", 3000.0)
 
-    println("Bonificação Alex: ${alex.bonificacao()}")
-    println("Bonificação Fran: ${fran.bonificacao()}")
+    println("Bonificação Alex: ${alex.bonificacao}")
+    println("Bonificação Fran: ${fran.bonificacao}")
 }
 
-private fun mainConta() {
+fun mainConta() {
     val contaEverton = Conta("Everton")
     val contaJoao = Conta("João")
 

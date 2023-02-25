@@ -2,5 +2,5 @@ version: '3.7'
 services:
   api:
     build:
-      context: "."
+      context: "./"
       dockerfile: Dockerfile
