@@ -1,5 +1,5 @@
 package model
-class Conta(val titular: String, val numero: Int? = null) {
+open class Conta(val titular: String, val numero: Int? = null) {
 
     var saldo: Double = 0.0
         private set
@@ -9,7 +9,7 @@ class Conta(val titular: String, val numero: Int? = null) {
             this.saldo += valor
     }
 
-    fun sacar(valor: Double) {
+    open fun sacar(valor: Double) {
         if (valor > 0 && valor <= saldo)
             this.saldo -= valor
     }
