@@ -2,10 +2,20 @@ package model
 
 abstract class Conta(
     val titular: Cliente,
-    val numero: Int? = (1000..9999).random()) {
-
+    var numero: Int?
+) {
     var saldo: Double = 0.0
         protected set
+
+    companion object {
+        var total = 0
+            private set
+    }
+
+    init {
+       total++
+       numero = (1000..9999).random()
+    }
 
     fun depositar(valor: Double) {
         if (valor > 0)
