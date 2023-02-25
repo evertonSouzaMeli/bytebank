@@ -11,7 +11,7 @@ class ContaCorrenteTest {
 
     @BeforeEach
     fun setup() {
-        contaCorrente = ContaCorrente("Titular", 12345)
+        contaCorrente = ContaCorrente(Cliente("Titular", senha = 1234, endereco = null))
     }
 
     @Test
@@ -48,26 +48,26 @@ class ContaCorrenteTest {
 
     @Test
     fun `deve transferir se houver saldo`() {
-        val conta2 = ContaCorrente("João", 67890)
+        val contaCorrente2 = ContaCorrente(Cliente("João", senha = 4567, endereco = null))
 
-        conta2.depositar(100.00)
+        contaCorrente2.depositar(100.00)
 
-        conta2.transferir(40.00, contaCorrente)
+        contaCorrente2.transferir(40.00, contaCorrente)
 
-        assertEquals(56.00, conta2.saldo)
+        assertEquals(56.00, contaCorrente2.saldo)
 
         assertEquals(40.00, contaCorrente.saldo)
     }
 
     @Test
     fun `nao deve transferir se nao houver saldo`() {
-        val conta2 = ContaCorrente("João", 67890)
+        val contaCorrente2 = ContaCorrente(Cliente("João", senha = 4567, endereco = null))
 
-        conta2.depositar(100.00)
+        contaCorrente2.depositar(100.00)
 
-        conta2.transferir(110.00, contaCorrente)
+        contaCorrente2.transferir(110.00, contaCorrente)
 
-        assertEquals(100.00, conta2.saldo)
+        assertEquals(100.00, contaCorrente2.saldo)
 
         assertEquals(0.00, contaCorrente.saldo)
     }

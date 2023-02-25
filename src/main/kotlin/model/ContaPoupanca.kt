@@ -1,9 +1,8 @@
 package model
 
 class ContaPoupanca(
-    titular: String,
-    numero: Int
-) : Conta(titular, numero) {
+    titular: Cliente
+) : Conta(titular) {
 
     override fun sacar(valor: Double) {
         if (valor > 0 && valor <= this.saldo) {

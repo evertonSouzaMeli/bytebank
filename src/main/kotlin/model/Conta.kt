@@ -1,6 +1,8 @@
 package model
 
-abstract class Conta(val titular: String, val numero: Int? = null) {
+abstract class Conta(
+    val titular: Cliente,
+    val numero: Int? = (1000..9999).random()) {
 
     var saldo: Double = 0.0
         protected set

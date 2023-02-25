@@ -11,7 +11,7 @@ class AuxiliarTest {
 
     @BeforeEach
     fun setup() {
-        auxiliar = Auxiliar("Auxiliar", "000.000.000-00", 1000.00)
+        auxiliar = Auxiliar("Auxiliar", 1000.00)
     }
 
     @Test
