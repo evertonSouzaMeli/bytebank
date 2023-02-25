@@ -10,7 +10,7 @@ class ContaTest {
 
     @BeforeEach
     fun setup() {
-        conta = Conta(titular = "Titular", numero = 12345)
+        conta = Conta("Titular", 12345)
     }
 
     @Test
