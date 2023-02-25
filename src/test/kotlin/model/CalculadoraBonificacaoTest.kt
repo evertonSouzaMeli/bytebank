@@ -27,7 +27,7 @@ class CalculadoraBonificacaoTest {
 
         val valorTotalBonificacao: Double = calculadoraBonificacao.total
 
-        assertEquals(24000.0, valorTotalBonificacao)
+        assertEquals(24000.00, valorTotalBonificacao)
     }
 
 }
