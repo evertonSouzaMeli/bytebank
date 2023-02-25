@@ -8,11 +8,7 @@
 name: Build Docker Container
 
 on:
-<<<<<<< HEAD
   push:
-=======
-  pull_request:
->>>>>>> main
     branches: [ "main" ]
 
 permissions:
