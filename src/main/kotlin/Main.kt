@@ -1,3 +1,4 @@
+import model.Cliente
 import model.ContaCorrente
 import model.ContaPoupanca
 import model.Gerente
@@ -7,13 +8,13 @@ fun main() {
 }
 
 fun mainFuncionario() {
-    val fran = Gerente("Franc", "222.222.222-22", 3000.0)
+    val fran = Gerente("Fran", 3000.0)
 }
 
 
 fun mainConta() {
-    val contaEverton = ContaCorrente("Everton", 12345)
-    val contaJoao = ContaPoupanca("João", 6789)
+    val contaEverton = ContaCorrente(Cliente("Everton", senha = 1234, endereco = null))
+    val contaJoao = ContaPoupanca(Cliente("João", senha = 4567, endereco = null))
 
 
     contaJoao.depositar(10.0)

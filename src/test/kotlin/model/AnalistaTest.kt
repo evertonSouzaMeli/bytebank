@@ -8,7 +8,7 @@ class AnalistaTest {
 
     @BeforeEach
     fun setup() {
-        analista = Analista("Analista", "444.444.444-44", 8000.00)
+        analista = Analista("Analista", salario = 8000.00)
     }
 
     @Test

@@ -9,7 +9,7 @@ class DiretorTest {
 
     @BeforeEach
     fun setup() {
-        diretor = Diretor("Diretor", "333.333.333-33", 8000.00, 1000.0)
+        diretor = Diretor("Diretor", 8000.00, 1000.0)
     }
 
     @Test

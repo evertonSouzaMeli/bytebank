@@ -9,7 +9,7 @@ class GerenteTest {
 
     @BeforeEach
     fun setup() {
-        gerente = Gerente("Gerente", "111.111.111-11", 4000.00)
+        gerente = Gerente("Gerente", 4000.00)
     }
 
     @Test
