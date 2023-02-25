@@ -7,14 +7,9 @@ fun main() {
     println("Hello World")
 }
 
-fun mainFuncionario() {
-    val fran = Gerente("Fran", 3000.0)
-}
-
-
 fun mainConta() {
-    val contaEverton = ContaCorrente(Cliente("Everton", senha = 1234, endereco = null))
-    val contaJoao = ContaPoupanca(Cliente("João", senha = 4567, endereco = null))
+    val contaEverton = ContaCorrente(Cliente("Everton", senha = 1234, endereco = null), numero = null)
+    val contaJoao = ContaPoupanca(Cliente("João", senha = 4567, endereco = null), numero = null)
 
 
     contaJoao.depositar(10.0)
