@@ -10,6 +10,7 @@ class CalculadoraBonificacaoTest {
     private lateinit var diretor: Diretor
     private lateinit var analista: Analista
     private lateinit var auxiliar: Auxiliar
+
     private var calculadoraBonificacao: CalculadoraBonificacao = CalculadoraBonificacao()
 
     @BeforeEach

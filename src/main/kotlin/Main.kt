@@ -8,13 +8,13 @@ fun main() {
 
 fun mainFuncionario() {
     val fran = Gerente("Franc", "222.222.222-22", 3000.0)
-
-    println("Bonificação Fran: ${fran.bonificacao}")
 }
+
 
 fun mainConta() {
     val contaEverton = ContaCorrente("Everton", 12345)
     val contaJoao = ContaPoupanca("João", 6789)
+
 
     contaJoao.depositar(10.0)
     contaJoao.transferir(6.0, contaEverton)
