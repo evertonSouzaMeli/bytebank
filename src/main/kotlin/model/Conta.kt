@@ -5,7 +5,7 @@ import exception.BusinessException
 abstract class Conta(
     val titular: Cliente,
     private var numero: Int?
-) {
+) : Autenticavel by titular {
     var saldo: Double = 0.0
         protected set
 
@@ -33,5 +33,10 @@ abstract class Conta(
 
     override fun toString(): String {
         return "Conta(titular=$titular, numero=$numero, saldo=$saldo)"
+    }
+
+    override fun autentica(senha: Int): Boolean = when {
+        titular.autentica(senha) -> true
+        else -> throw BusinessException("Something went wrong, wrong password")
     }
 }
