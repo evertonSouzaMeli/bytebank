@@ -8,7 +8,10 @@ class Cliente(
     private val senha: Int,
 ) : Autenticavel {
 
-    var cpf: String = GeneralUtils().geraCpf()
+    private var cpf: String = GeneralUtils().geraCpf()
 
     override fun autentica(senha: Int): Boolean = this.senha == senha
+    override fun toString(): String {
+        return "Cliente(nome='$nome', endereco=$endereco, senha=$senha, cpf='$cpf')"
+    }
 }

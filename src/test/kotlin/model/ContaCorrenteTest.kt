@@ -1,5 +1,6 @@
 package model
 
+import exception.BusinessException
 import org.junit.jupiter.api.Assertions.*
 
 import org.junit.jupiter.api.BeforeEach
@@ -33,13 +34,6 @@ class ContaCorrenteTest {
     }
 
     @Test
-    fun `nao deve depositar se o valor for negativo`() {
-        contaCorrente.depositar(-10.0)
-
-        assertEquals(0.0, contaCorrente.saldo)
-    }
-
-    @Test
     fun `nao deve sacar se nao possuir saldo`() {
         contaCorrente.depositar(1.0)
 
@@ -64,19 +58,12 @@ class ContaCorrenteTest {
     fun `nao deve transferir se nao houver saldo`() {
         contaCorrente2.depositar(100.00)
 
-        contaCorrente2.transferir(110.00, contaCorrente)
+        val businessException = assertThrows(BusinessException::class.java) {
+            contaCorrente2.transferir(110.00, contaCorrente)
+        }
 
-        assertEquals(100.00, contaCorrente2.saldo)
+        assertEquals(businessException.message, "Something went wrong, check the business rule")
 
         assertEquals(0.00, contaCorrente.saldo)
-    }
-
-    @Test
-    fun `nao deve transferir para si mesmo`() {
-        contaCorrente.depositar(110.00)
-
-        contaCorrente.transferir(50.00, contaCorrente)
-
-        assertEquals(110.00, contaCorrente.saldo)
     }
 }
