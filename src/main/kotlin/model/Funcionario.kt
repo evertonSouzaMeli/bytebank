@@ -9,6 +9,7 @@ abstract class Funcionario(
     private val cpf: String = GeneralUtils().geraCpf()
 
     abstract val bonificacao: Double
+
     override fun toString(): String {
         return "Funcionario(nome='$nome', salario=$salario, cpf='$cpf', bonificacao=$bonificacao)"
     }

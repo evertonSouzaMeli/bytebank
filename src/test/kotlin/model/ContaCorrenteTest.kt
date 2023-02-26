@@ -1,8 +1,8 @@
 package model
 
 import exception.BusinessException
-import org.junit.jupiter.api.Assertions.*
-
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -13,8 +13,14 @@ class ContaCorrenteTest {
 
     @BeforeEach
     fun setup() {
-        contaCorrente = ContaCorrente(titular = Cliente(nome = "Titular", senha = 1234, endereco = null), numero = null)
-        contaCorrente2 = ContaCorrente(titular = Cliente(nome = "Titular 2", senha = 5678, endereco = null), numero = null)
+        contaCorrente = ContaCorrente(
+            titular = Cliente(nome = "Titular", senha = 1234, endereco = null),
+            numero = null
+        )
+        contaCorrente2 = ContaCorrente(
+            titular = Cliente(nome = "Titular 2", senha = 5678, endereco = null),
+            numero = null
+        )
     }
 
     @Test
@@ -69,7 +75,7 @@ class ContaCorrenteTest {
 
     @Test
     fun `deve lançar BusinessException quando a senha for incorreta`() {
-        val businessException = assertThrows(BusinessException::class.java){
+        val businessException = assertThrows(BusinessException::class.java) {
             contaCorrente.autentica(123)
         }
 

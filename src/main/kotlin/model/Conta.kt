@@ -15,8 +15,8 @@ abstract class Conta(
     }
 
     init {
-       total++
-       numero = (1000..9999).random()
+        total++
+        numero = (1000..9999).random()
     }
 
     fun depositar(valor: Double) =
@@ -25,7 +25,7 @@ abstract class Conta(
 
     abstract fun sacar(valor: Double)
 
-    fun  transferir(valor: Double, conta: Conta) =
+    fun transferir(valor: Double, conta: Conta) =
         if (valor <= saldo && conta != this) {
             conta.depositar(valor)
             this.sacar(valor)
