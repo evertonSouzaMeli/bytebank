@@ -66,4 +66,13 @@ class ContaCorrenteTest {
 
         assertEquals(0.00, contaCorrente.saldo)
     }
+
+    @Test
+    fun `deve lançar BusinessException quando a senha for incorreta`() {
+        val businessException = assertThrows(BusinessException::class.java){
+            contaCorrente.autentica(123)
+        }
+
+        assertEquals(businessException.message, "Something went wrong, wrong password")
+    }
 }
