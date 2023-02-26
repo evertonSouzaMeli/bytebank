@@ -1,9 +1,11 @@
 package model
 
+import exception.BusinessException
 import org.junit.jupiter.api.Assertions.*
 
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class ContaPoupancaTest {
     private lateinit var contaPoupanca: ContaPoupanca
@@ -27,5 +29,25 @@ class ContaPoupancaTest {
     @Test
     fun `deve autenticar quando a senha for igual`() {
         assertTrue(contaPoupanca.titular.autentica(5678))
+    }
+
+    @Test
+    fun `deve lancar BusinessException quando for transferir para si mesmo`(){
+        contaPoupanca.depositar(10.0)
+
+        val businessException = assertThrows(BusinessException::class.java) {
+            contaPoupanca.transferir(10.0, contaPoupanca)
+        }
+
+        assertEquals(businessException.message, "Something went wrong, check the business rule")
+    }
+
+    @Test
+    fun `deve lancar BusinessException quando for depositar valor negativo`(){
+        val businessException = assertThrows(BusinessException::class.java) {
+            contaPoupanca.depositar(-10.0)
+        }
+
+        assertEquals(businessException.message, "Something wrong happened, value must be greater than zero")
     }
 }

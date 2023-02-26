@@ -3,10 +3,13 @@ package model
 import utils.GeneralUtils
 
 abstract class Funcionario(
-    val nome: String,
+    private val nome: String,
     val salario: Double
 ) {
-    val cpf: String = GeneralUtils().geraCpf()
+    private val cpf: String = GeneralUtils().geraCpf()
 
     abstract val bonificacao: Double
+    override fun toString(): String {
+        return "Funcionario(nome='$nome', salario=$salario, cpf='$cpf', bonificacao=$bonificacao)"
+    }
 }
