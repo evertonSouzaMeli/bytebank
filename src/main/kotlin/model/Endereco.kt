@@ -1,10 +1,10 @@
 package model
 
 data class Endereco(
-    private val logradouro: String,
-    private val numero: Int,
-    private val bairro: String,
-    private val cidade: String,
-    private val estado: String,
-    private val cep: String
+    val logradouro: String? = null,
+    val numero: Int? = null,
+    val bairro: String? = null,
+    val cidade: String? = null,
+    val estado: String? = null,
+    val cep: String? = null
 )
