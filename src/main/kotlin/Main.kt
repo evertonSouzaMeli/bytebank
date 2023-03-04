@@ -1,9 +1,10 @@
 import model.Endereco
+import java.util.Locale
 
 fun main() {
-    Endereco(logradouro = "Rua vergueiro", numero = 3185).let { endereco ->
-        "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
-    }.let(::println)
+    Endereco(logradouro = "Rua vergueiro", numero = 3185)
+        .run {"${logradouro?.uppercase(Locale.getDefault())}, $numero" }
+        .let(::println)
 
     listOf(
         Endereco(logradouro = "Rua A"),
@@ -12,9 +13,7 @@ fun main() {
     ).filter { endereco -> endereco.numero != null }
         .let(::println)
 
-    soma(1, 2) {
-        println("Resultado: $it")
-    }
+    soma(1, 2, ::println)
 }
 
 private fun minhaFuncaoLambda() {
